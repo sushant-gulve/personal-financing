@@ -34,6 +34,10 @@ statements/
 *.tmp
 *.temp
 
+# Script temporary files
+scripts/*.tmp
+scripts/*.log
+
 # Eclipse
 .project
 .classpath

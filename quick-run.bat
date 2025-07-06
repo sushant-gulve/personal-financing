@@ -1,19 +1,10 @@
 @echo off
 echo ====================================
-echo Personal Finance CLI Application
+echo Personal Finance CLI - Quick Run
 echo ====================================
 echo.
 
-echo [1/3] Cleaning previous build...
-call .\gradlew.bat clean
-if %ERRORLEVEL% neq 0 (
-    echo ERROR: Clean failed!
-    pause
-    exit /b 1
-)
-
-echo.
-echo [2/3] Building application...
+echo [1/2] Building application (incremental)...
 call .\gradlew.bat build
 if %ERRORLEVEL% neq 0 (
     echo ERROR: Build failed!
@@ -22,7 +13,7 @@ if %ERRORLEVEL% neq 0 (
 )
 
 echo.
-echo [3/3] Starting Personal Finance Application...
+echo [2/2] Starting Personal Finance Application...
 echo.
 call .\gradlew.bat run --console=plain -q
 

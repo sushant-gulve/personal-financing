@@ -62,7 +62,8 @@ jar {
 // Task to run the application
 task runApp(type: JavaExec) {
     group = 'application'
-    description = 'Run the Personal Finance CLI application'
+    description = 'Clean, build, and run the Personal Finance CLI application'
+    dependsOn 'clean', 'build'
     classpath = sourceSets.main.runtimeClasspath
     mainClass = 'com.enterprise.personalfinance.PersonalFinanceApplication'
     standardInput = System.in

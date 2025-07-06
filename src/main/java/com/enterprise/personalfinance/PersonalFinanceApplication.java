@@ -1,16 +1,14 @@
 package com.enterprise.personalfinance;
 
-import com.enterprise.personalfinance.application.service.PersonalFinanceService;
-import com.enterprise.personalfinance.application.service.impl.PersonalFinanceServiceImpl;
-import com.enterprise.personalfinance.infrastructure.repository.ExpenseRepository;
-import com.enterprise.personalfinance.infrastructure.repository.impl.FileBasedExpenseRepository;
+import com.enterprise.personalfinance.infrastructure.config.ApplicationConfig;
+import com.enterprise.personalfinance.infrastructure.di.DIContainer;
 import com.enterprise.personalfinance.presentation.cli.PersonalFinanceCLI;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
  * Main application class for the Personal Finance CLI application.
- * Sets up dependency injection and starts the application.
+ * Uses dependency injection for managing dependencies and loose coupling.
  */
 public class PersonalFinanceApplication {
     
@@ -18,12 +16,18 @@ public class PersonalFinanceApplication {
     
     public static void main(String[] args) {
         try {
-            logger.info("Starting Personal Finance Application");
+            logger.info("Starting Personal Finance Application with Dependency Injection");
             
-            // Initialize dependencies using manual dependency injection
-            ExpenseRepository expenseRepository = new FileBasedExpenseRepository();
-            PersonalFinanceService financeService = new PersonalFinanceServiceImpl(expenseRepository);
-            PersonalFinanceCLI cli = new PersonalFinanceCLI(financeService);
+            // Initialize dependency injection container
+            DIContainer container = ApplicationConfig.createContainer();
+            
+            // Validate that all dependencies are properly configured
+            ApplicationConfig.validateContainer(container);
+            
+            // Get the CLI instance from the container (all dependencies will be injected automatically)
+            PersonalFinanceCLI cli = container.getInstance(PersonalFinanceCLI.class);
+            
+            logger.info("All dependencies initialized successfully, starting CLI");
             
             // Start the CLI application
             cli.start();
