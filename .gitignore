@@ -1,0 +1,55 @@
+# Gradle build files
+build/
+.gradle/
+gradle-wrapper.jar
+
+# IDE files
+.idea/
+.vscode/
+*.iml
+*.ipr
+*.iws
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Java compiled files
+*.class
+*.jar
+*.war
+*.ear
+
+# Logs
+*.log
+logs/
+
+# Personal finance data files (if you want to keep expenses private)
+expenses.json
+
+# Bank statements and personal financial documents
+statements/
+
+# Temporary files
+*.tmp
+*.temp
+
+# Eclipse
+.project
+.classpath
+.settings/
+
+# NetBeans
+nb-configuration.xml
+nbproject/
+
+# IntelliJ IDEA
+*.iml
+.idea/
+
+# Maven (if you switch to Maven later)
+target/
+
+# Gradle downloaded files
+gradle-8.5/
+gradle-8.5-bin.zip
