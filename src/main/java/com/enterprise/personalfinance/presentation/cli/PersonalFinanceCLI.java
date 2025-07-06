@@ -75,6 +75,10 @@ public class PersonalFinanceCLI {
     private int getMenuChoice() {
         try {
             String input = scanner.nextLine().trim();
+            if (input.isEmpty()) {
+                System.out.println("Please enter a choice.");
+                return -1;
+            }
             return Integer.parseInt(input);
         } catch (NumberFormatException e) {
             System.out.println("Invalid input. Please enter a number between 1 and 9.");
