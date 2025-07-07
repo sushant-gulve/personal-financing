@@ -28,7 +28,7 @@ logs/
 expenses.json
 
 # Bank statements and personal financial documents
-statements/
+# statements/
 
 # Temporary files
 *.tmp
